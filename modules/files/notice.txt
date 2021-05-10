@@ -1,0 +1,1 @@
+In the files/ directory, you will have to find and manage your own breach data. In this program, the breach text file was split into 30+ text files for both Linkedin and MyFitnessPal.

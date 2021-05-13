@@ -10,7 +10,7 @@ When searching for emails, you can use key words. If you're looking for somebody
 
 Finding the databases is easy if you but your mind into it. I downloaded mine off a not-so-safe looking website - to give you an idea. 
 
-Once downloaded, it is wise to break them up into smaller .txt files so python can read through them more efficently. In my case, the LinkedIn and MyFitnessPal were cut into 37 and 20 txt files, respectively.
+Once downloaded, it is wise to break them up into smaller .txt files so python can read through them more efficently. In my case, the LinkedIn and MyFitnessPal were cut into 37 and 20 .txt files, respectively.
 
 ## 
 

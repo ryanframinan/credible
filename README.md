@@ -1,8 +1,8 @@
 # Description
 
-Credible sorts through the LinkedIn and MyFitnessPal data breaches (or any you like) and returns any matches in user:pass format. The dumps will not be included in this repository.
+Credible sorts through the LinkedIn and MyFitnessPal data breaches (or any you like) and returns any matches in user:pass format. This program will spit out all matches it finds within the database. *The dumps will not be included in this repository*.
 
-In some cases, the password will be returned as plaintext; however, expect to use hashcat if you get a hit. 
+In some cases, the password will be returned as plaintext. If the password returns as hashed, it is SHA1. 
 
 
 ## 

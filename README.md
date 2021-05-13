@@ -4,6 +4,13 @@ Credible sorts through the LinkedIn and MyFitnessPal data breaches (or any you l
 
 In some cases, the password will be returned as plaintext. If the password returns as hashed, it is SHA1. 
 
+When searching for emails, you can use key words. If you're looking for somebody with a unique last name, for example, you can simply replace an email address with the last name and credible will spit out all users with the same last name.
+
+## Finding and Using the Databases within Credible
+
+Finding the databases is easy if you but your mind into it. I downloaded mine off a not-so-safe looking website - to give you an idea. 
+
+Once downloaded, it is wise to break them up into smaller .txt files so python can read through them more efficently. In my case, the LinkedIn and MyFitnessPal were cut into 37 and 20 txt files, respectively.
 
 ## 
 
@@ -15,11 +22,11 @@ _  ___/_  ___/  _ \  __  /__  /__  __ \_  /_  _ \           ___  __ \_  / / /
 \___/ /_/    \___/\__,_/  /_/  /_.___//_/  \___/   _(_)     _  .___/_\__, /  
                                                             /_/     /____/   
 Credible: fram, wannabe pentester
-OSINT tool, use responsibly
-usage: credible.py [-h] [--proxy <proxy>] [--email <email>] [--path <path>]       
+OSINT tool, use responsibly      
 ```
 ## Usage
 ```
+usage: credible.py [-h] [--proxy <proxy>] [--email <email>] [--path <path>] 
 optional arguments:
   -h, --help       show this help message and exit
   --proxy <proxy>  Proxy type: l = LinkedIn, m = MyFitnessPal, r = Random, a = all
@@ -42,6 +49,8 @@ OSINT tool, use responsibly
 ```
 
 ## Future Construction
-If you take one look at this program, it is clearly far from complete. I need to implement the --path variable as well as more data breach's for a more in-depth scan of an email address.
+If you take one look at this program, it is clearly far from complete. 
 
-Hopefully, I will be able to add an MD5 and/or bcrypt decoder at some point to save you the headache of cracking the password yourself.
+1. I need to implement the --path variable as well as more data breach's for a more in-depth scan of an email address.
+2. I will add a SHA1 decoder at some point to save you the headache of cracking the password yourself.
+3. I plan on adding more breach compilations to credible for stronger results.

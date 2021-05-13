@@ -14,6 +14,7 @@ class MyFitnessPal:
                     if email in line:
                         line = line.replace('"', '')
                         line = line.replace(",", ":")
+                        line = line.replace("\n", "")
                         allMatches.append(line)
             i+=1
             f.close()

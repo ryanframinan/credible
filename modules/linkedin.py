@@ -7,7 +7,10 @@
         self.email = email
         allMatches = []
         i = 1
-
+        
+        '''
+        37 is the number of files I cut from the original linkedin file. Change this numnber according to however many files you end up with
+        '''
         while(i <= 37):
             with open(r'FULLPATH\modules\files\linkedin\{}.txt'.format(i)) as f:
                 for num, line in enumerate(f, 1):

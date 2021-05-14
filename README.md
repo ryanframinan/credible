@@ -14,6 +14,11 @@ Once downloaded, it is wise to break them up into smaller .txt files so python c
 
 If you'd like, alphabetizing the .txt files can make the program run more efficiently. Meaning, if the email you are looking for starts with an 'r', instead of searching for 37 .txt files, it will only search through the file deemed with strings starting with 'r'. This will save time if you need tons of results fast.
 
+Here is the script you would use to start this process:
+```
+sort 1.txt > 1.txt.sorted && mv 1.txt.sorted 1.txt
+```
+
 ## 
 
 ```

@@ -7,7 +7,10 @@ class MyFitnessPal:
         self.email = email
         allMatches = []
         i = 1
-
+        
+        '''
+        20 is the number of files I cut from the original MyFitnessPal file. Change this numnber according to however many files you end up with
+        '''
         while(i <= 20):
             with open(r'FULLPATH\modules\files\myfitnesspal/{}.txt'.format(i)) as f:
                 for num, line in enumerate(f, 1):

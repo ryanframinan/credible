@@ -2,7 +2,7 @@
 
 Credible sorts through the LinkedIn and MyFitnessPal data breaches (or any you like) and returns any matches in username:password format. This program will spit out all matches it finds within the database. *The dumps will not be included in this repository*.
 
-In some cases, the password will be returned as plaintext, null, or xxx. If the password returns as hashed, it is SHA1. 
+In some cases, the password will be returned as plaintext, null, xxx, or a hash value. If the password returns as hashed, it is SHA1. 
 
 When searching for emails, you can use key words. If you're looking for somebody with a unique last name, for example, you can simply replace an email address with the last name and credible will spit out all users with the same last name.
 

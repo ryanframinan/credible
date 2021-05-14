@@ -6,7 +6,7 @@ In some cases, the password will be returned as plaintext, null, or xxx. If the 
 
 When searching for emails, you can use key words. If you're looking for somebody with a unique last name, for example, you can simply replace an email address with the last name and credible will spit out all users with the same last name.
 
-## Finding and Using the Databases within Credible
+## Finding, Using, and Optimizing the Databases within Credible
 
 Finding the databases is easy if you but your mind into it. I downloaded mine off a not-so-safe looking website - to give you an idea. 
 

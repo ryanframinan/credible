@@ -1,10 +1,6 @@
 import argparse
-import sys
 from modules import *
-import re 
 import os
-
-# Need to program --path to be implemented.. too lazy right now
 
 class Credible:
 
@@ -30,16 +26,7 @@ class Credible:
             if os.path.exists(args.path) == False:
                 print("[-] " + args.path + " doesn't exist in directory")
                 exit(1)
-        
-        # email coordination
-        #if args.email is not None:
-        #    to_search = [args.email]
-        #elif arg.path is not None:
-        #    with open(args.path) as emails:
-        #        to_search = emails.readlines()
         return args
-
-# end validate_args ---------------------------------------------------
 
     def show_banner(self):
         with open('banner.txt', 'r') as f:
@@ -49,18 +36,33 @@ class Credible:
     def run(self, args):
         if args.proxy == 'l' or args.proxy == 'a':
             print("[-] Seaching for breached LinkedIn Credentials")
-            linked = linkedin.LinkedIn(args.email)
-            linked.linkedin(args.email)
+            if type(args.path) == str:
+                f = open(args.path, "r")
+                for path in f:
+                    linked = linkedin.LinkedIn(path)
+                    linked.linkedin(path)
+                f.close()
+            else:
+                linked = linkedin.LinkedIn(args.email)
+                linked.linkedin(args.email)
 
         if args.proxy == 'm' or args.proxy == 'a':
             print("[-] Searching for breached MyFitnessPal Credentials")
-            myFit = myfitnesspal.MyFitnessPal(args.email)
-            myFit.myfitnesspal(args.email)
+            if type(args.path) == str:
+                f = open(args.path, "r")
+                for path in f:
+                    myFit = myfitnesspal.MyFitnessPal(path)
+                    myfitnesspal.MyFitnessPal(path)
+            else:
+                myFit = myfitnesspal.MyFitnessPal(args.email)
+                myFit.myfitnesspal(args.email)
 
-        #Add another breach if you want :)
-        #if args.proxy == 'r':
-        #    print("[-] Searching for breached Credentials (Good Luck!)")
-        #    rand = random.Random(to_search)
+        '''
+        Add another breach if you want :)
+        if args.proxy == 'r':
+            print("[-] Searching for breached Credentials (Good Luck!)")
+            rand = random.Random(to_search)
+        '''
 
 if __name__ == "__main__":
     c = Credible()

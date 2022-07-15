@@ -8,8 +8,7 @@ When searching for emails, you can use key words. If you're looking for somebody
 
 ## Finding, Using, and Optimizing the Databases within Credible
 
-Finding the databases is easy if you but your mind into it. I downloaded mine off a not-so-safe looking website - to give you an idea. 
-
+Use whatever credential dump you want. The two most common ones will be LinkedIn and MyFitnessPal; however, there will be bigger and better dumps as time moves on these two become less relevant.
 Once downloaded, it is wise to break them up into smaller .txt files so python can read through them more efficently. In my case, the LinkedIn and MyFitnessPal were cut into 37 and 20 .txt files, respectively.
 
 If you'd like, alphabetizing the .txt files can make the program run more efficiently. Meaning, if the email you are looking for starts with an 'r', instead of searching for 37 .txt files, it will only search through the file deemed with strings starting with 'r'. This will save time if you need tons of results fast.

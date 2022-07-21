@@ -1,6 +1,6 @@
 # Description
 
-Credible sorts through the inputed data breaches and returns any matches in username@email.com:password format. This program will spit out all matches it finds within the database. *A collection of breaches will be linked below*.
+Credible sorts through the inputed data breaches and returns any matches in `username@email.com:password` format. This program will spit out all matches it finds within the database. *A collection of breaches will be linked below*.
 
 ## Usage
 ```

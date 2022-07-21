@@ -1,30 +1,38 @@
 import argparse
-from modules import *
 import os
+from modules.exact import Exact
+from modules.suggest import Suggest
 
-class Credible:
 
-    def __init__(self):
-        pass
-
+class Credible():
     def validate_args(self):
         parser = argparse.ArgumentParser(description="")
-        parser.add_argument("--proxy", metavar="<proxy>", dest="proxy", default=None, 
-                            help="Proxy type: l = LinkedIn, m = MyFitnessPal, r = Random, a = all")
-        parser.add_argument("--email", metavar="<email>", dest="email", default=None, 
-                            help="Pass a single email to scan. TIP: Can scan for username.")
-        parser.add_argument("--path", metavar="<path>", dest="path", default=None, help="Pass a file containing emails one per line to scan.")
+        parser.add_argument("--exact", dest="exact", action='store_true',
+                            help="Pass the exact username or domain you want to search for.")
+        parser.add_argument("--suggest", dest="suggest", action='store_true', 
+                            help="Let Credible suggest a username or domain to output based on your input. This is purposefully 90 accurate.")
+        parser.add_argument("-u", metavar="<user>", dest="user", default=None, 
+                            help="Pass a single user to scan.")
+        parser.add_argument("-d", metavar="<domain>", dest="domain", default=None, 
+                            help="Pass a single domain to scan.")
+        parser.add_argument("-f", metavar="<file>", dest="file", type=str, default=None, 
+                            help="Pass a file containing credential dump one per line to scan. Pattern must be username@example.com:password")
+        parser.add_argument("-o", metavar="<outfile>", dest="outfile", type=str, default=None, 
+                            help="Save the output to a file.")
         args = parser.parse_args()
 
-        if not args.proxy:
-            print("[-] Missing --proxy argument")
+        if not (args.exact or args.suggest):
+            print("[-] Please specify --exact or --suggest.")
             exit(1)
-        if not (args.email or args.path):
-            print("[-] Missing --email or --path argument")
+        if not (args.user or args.domain):
+            print("[-] Missing -u or -d argument")
             exit(1)
-        if args.path != None:
-            if os.path.exists(args.path) == False:
-                print("[-] " + args.path + " doesn't exist in directory")
+        if not (args.file):
+            print("[-] Missing -f argument")
+            exit(1)
+        if args.file != None:
+            if os.path.exists(args.file) == False:
+                print("[-] " + args.file + " doesn't exist in directory")
                 exit(1)
         return args
 
@@ -34,35 +42,30 @@ class Credible:
             print("\033[94m%s\033[0;0m" % data)
 
     def run(self, args):
-        if args.proxy == 'l' or args.proxy == 'a':
-            print("[-] Seaching for breached LinkedIn Credentials")
-            if type(args.path) == str:
-                f = open(args.path, "r")
-                for path in f:
-                    linked = linkedin.LinkedIn(path)
-                    linked.linkedin(path)
-                f.close()
-            else:
-                linked = linkedin.LinkedIn(args.email)
-                linked.linkedin(args.email)
-
-        if args.proxy == 'm' or args.proxy == 'a':
-            print("[-] Searching for breached MyFitnessPal Credentials")
-            if type(args.path) == str:
-                f = open(args.path, "r")
-                for path in f:
-                    myFit = myfitnesspal.MyFitnessPal(path)
-                    myfitnesspal.MyFitnessPal(path)
-            else:
-                myFit = myfitnesspal.MyFitnessPal(args.email)
-                myFit.myfitnesspal(args.email)
-
-        '''
-        Add another breach if you want :)
-        if args.proxy == 'r':
-            print("[-] Searching for breached Credentials (Good Luck!)")
-            rand = random.Random(to_search)
-        '''
+        if args.user and args.domain:
+            email = args.user + "@" + args.domain
+            print("[-] Searching for exact email address: " + email)
+            e = Exact(email, args.file)
+            e.both()
+        elif (args.user or args.domain) != None:
+            if args.exact:
+                if args.user != None:
+                    print("[-] Searching for exact username: " + args.user)
+                    e = Exact(args.user, args.file)
+                    e.username()
+                if args.domain != None:
+                    print("[-] Searching for exact domain: " + args.domain)
+                    e = Exact(args.domain, args.file)
+                    e.domain()
+            if args.suggest:
+                if args.user != None:
+                    print("[-] Suggesting for username: " + args.user)
+                    s = Suggest(args.user, args.file)
+                    s.username()
+                if args.domain != None:
+                    print("[-] Suggesting for domain: " + args.domain)
+                    s = Suggest(args.domain, args.file)
+                    s.domain()
 
 if __name__ == "__main__":
     c = Credible()

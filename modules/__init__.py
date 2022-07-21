@@ -1,1 +1,1 @@
-__all__ = ['linkedin', 'myfitnesspal']
+__all__ = ['exact', 'suggest']

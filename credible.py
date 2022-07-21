@@ -10,15 +10,13 @@ class Credible():
         parser.add_argument("--exact", dest="exact", action='store_true',
                             help="Pass the exact username or domain you want to search for.")
         parser.add_argument("--suggest", dest="suggest", action='store_true', 
-                            help="Let Credible suggest a username or domain to output based on your input. This is purposefully 90 accurate.")
+                            help="Let Credible suggest a username or domain to output based on your input.")
         parser.add_argument("-u", metavar="<user>", dest="user", default=None, 
                             help="Pass a single user to scan.")
         parser.add_argument("-d", metavar="<domain>", dest="domain", default=None, 
                             help="Pass a single domain to scan.")
         parser.add_argument("-f", metavar="<file>", dest="file", type=str, default=None, 
                             help="Pass a file containing credential dump one per line to scan. Pattern must be username@example.com:password")
-        parser.add_argument("-o", metavar="<outfile>", dest="outfile", type=str, default=None, 
-                            help="Save the output to a file.")
         args = parser.parse_args()
 
         if not (args.exact or args.suggest):

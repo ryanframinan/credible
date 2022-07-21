@@ -1,24 +1,6 @@
 # Description
 
-Credible sorts through the LinkedIn and MyFitnessPal data breaches (or any you like) and returns any matches in username:password format. This program will spit out all matches it finds within the database. *The dumps will not be included in this repository*.
-
-In some cases, the password will be returned as plaintext, null, xxx, or a hash value. If the password returns as hashed, it is SHA1. 
-
-When searching for emails, you can use key words. If you're looking for somebody with a unique last name, for example, you can simply replace an email address with the last name and credible will spit out all users with the same last name.
-
-## Finding, Using, and Optimizing the Databases within Credible
-
-Use whatever credential dump you want. The two most common ones will be LinkedIn and MyFitnessPal; however, there will be bigger and better dumps as time moves on these two become less relevant.
-Once downloaded, it is wise to break them up into smaller .txt files so python can read through them more efficently. In my case, the LinkedIn and MyFitnessPal were cut into 37 and 20 .txt files, respectively.
-
-If you'd like, alphabetizing the .txt files can make the program run more efficiently. Meaning, if the email you are looking for starts with an 'r', instead of searching for 37 .txt files, it will only search through the file deemed with strings starting with 'r'. This will save time if you need tons of results fast.
-
-Here is the script you would use to start this process:
-```
-sort 1.txt > 1.txt.sorted && mv 1.txt.sorted 1.txt
-```
-
-## 
+Credible sorts through the inputed data breaches and returns any matches in username@email.com:password format. This program will spit out all matches it finds within the database. *A collection of breaches will be linked below*.
 
 ```
                   ___________________ ______
